@@ -2,7 +2,11 @@
 #include <math.h>
 
 double calc(int i) {
+#ifdef WITH_EXPECT
   if (__builtin_expect(i>0, 0)) {
+#else
+  if (i>0) {
+#endif
     switch (i) {
       case 0:
         i = i + 15;

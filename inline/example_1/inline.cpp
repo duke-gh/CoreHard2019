@@ -1,6 +1,12 @@
 #include "inline.h"
 
-inline double calc_value(int i, int branch) {
+#ifdef WITH_INLINE
+#define INLINE inline
+#else
+#define INLINE
+#endif
+
+INLINE double calc_value(int i, int branch) {
   switch (i) {
     case 0:
       i = i + 15;

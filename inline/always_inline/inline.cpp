@@ -1,8 +1,12 @@
 #include "inline.h"
 #include "math.h"
 
+#ifdef WITH_INLINE
 #define INLINE_OPT __attribute__((always_inline))
-//#define INLINE_OPT
+#else
+#define INLINE_OPT
+#endif
+
 
 INLINE_OPT double get_first_light_value(int i) {
   double double_i = static_cast<double>(i);
